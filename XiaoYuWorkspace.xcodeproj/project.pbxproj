@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00DBB47157854434F12CB885 /* ProjectAccessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985222FAC92F8E4BEA8051C1 /* ProjectAccessService.swift */; };
+		048AB65A18BBBF0440D82B99 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF707A758F9BA8DED5D8152 /* SearchTests.swift */; };
+		0B2491A060683F1009FD7AAC /* JEVClassificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A00045493692E91CF266B /* JEVClassificationTests.swift */; };
+		220870E6905E9CD893C69A84 /* FileAnnotationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1D52D15DAA6FA9111DE18 /* FileAnnotationRecord.swift */; };
+		29F9987E5DB01C51EC7380FA /* WorkspaceRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9125BCA694CA1DAD5CB44F /* WorkspaceRootView.swift */; };
+		2C3F5D5AF88C44A42E98B24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AAA38400A97448BE7E1F4F7 /* Assets.xcassets */; };
+		2F05EA1EFCE420CCA6C22D49 /* JournalSubmissionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303808BCB154A8F3E089C1D2 /* JournalSubmissionRecord.swift */; };
+		347C464FAB543CE16358BCFC /* FileOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C64F41DD5FCDF09E46A3E /* FileOperationTests.swift */; };
+		40DBE4015E827DB1D9A5377B /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCF6DEF1B053C73D72014 /* WorkspaceTests.swift */; };
+		48229D42606738EB9D46C442 /* ProjectChangeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CE8D1C4D80CBDBA08D0B /* ProjectChangeMonitor.swift */; };
+		4D3A9A1CE91249486F77642F /* FileOperationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD85F3A4A65B76B485D4B01 /* FileOperationService.swift */; };
+		60E386B59D8F025019392632 /* ProjectStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE21F2E44077646CB884B73 /* ProjectStage.swift */; };
+		6685AEC2C5BCEACBF25AD3FC /* ThemePalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */; };
+		72341E561C804BB6307AFA54 /* WorkspaceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA28A9CD71F2622252D7BDF /* WorkspaceSettingsView.swift */; };
+		72A0212FC16089F34CDF7888 /* ProjectChangeMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C29C7E56522526E794F25EE /* ProjectChangeMonitorTests.swift */; };
+		76104431D1EEF7B131DBCB5D /* WorkspaceCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4B1FB3C08970814F5AFB2 /* WorkspaceCommands.swift */; };
+		7FDC5E7AFCBC1977B4001FED /* ProjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAEE4743C80C3D9B42D3BBB /* ProjectRecord.swift */; };
+		83806D957B62BC28870BE968 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35481FC734DD221C05693 /* JournalTests.swift */; };
+		97ABEC481792D21E1DB2B612 /* IndexCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7036ED4A2CC6AB0A536CF /* IndexCacheService.swift */; };
+		9A819A304D09D30144472E57 /* ProjectScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA5EE49030F2DE0E3A1803 /* ProjectScanService.swift */; };
+		9E38BFF24EF619D726D463C6 /* AnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EBD346FD2E224BE88D132C /* AnnotationTests.swift */; };
+		A4DECD437C81E80FD5D547FF /* WorkspaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5835C827AAFDD1FC1A894E7A /* WorkspaceModel.swift */; };
+		ADAC2BD5F2B431DD016C2FAF /* JournalCoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C485CD254D66034B9564B7C /* JournalCoverService.swift */; };
+		B21B39A9BBA6F8E2B42F48C4 /* ClassificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A484F62D8A995B4088DC1 /* ClassificationTests.swift */; };
+		BCAEBD4A3E3401DA54DD97E0 /* JEVContentExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F398B29BF7BA7C023BEBCD /* JEVContentExtractor.swift */; };
+		BF2E63791A759E50A9EAD9C4 /* JournalSubmissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D02B26B90FAB80E2685C5B /* JournalSubmissionService.swift */; };
+		BFEDF3360B4AC4F4A05BD782 /* FileAnnotationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06DCEDA8BA0C0626DDF0EE2 /* FileAnnotationService.swift */; };
+		CDEC3582936B7C693BE0F627 /* TrashRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E1E9271055E0C83E027F10 /* TrashRecord.swift */; };
+		CF073D2579D6372588815910 /* OpenRouterAPIKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663DDD4DE0D75598FD637F1 /* OpenRouterAPIKeyStore.swift */; };
+		D26077B754382A622AF0AFE6 /* JEVModelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A8E8D688571FF59EB73D3 /* JEVModelClient.swift */; };
+		D94BBDD580FE9F4319014647 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE74ADA39657E696C0C493 /* SearchService.swift */; };
+		E33B574060C298726FD7AD54 /* XiaoYuWorkspaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BB06C08ACC993AA61C210 /* XiaoYuWorkspaceApp.swift */; };
+		E706731D0EFE0839F021BA4F /* ActivityLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C5C311511FB48DB9A4947B /* ActivityLogStore.swift */; };
+		E92C692BC32C0C1041964B63 /* FileOpenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F90FDB6ACF0FA0961AAAA0 /* FileOpenService.swift */; };
+		E96F0A5B709AC0C4E582AADC /* ScannedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385F9799E5B4EE814A784D3 /* ScannedFile.swift */; };
+		EC35DA76E6AA999D05917520 /* OpenRouterJEVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B59F0A5F487C80FB8AB4 /* OpenRouterJEVTests.swift */; };
+		F0B7605C80124E966952F53F /* ClassificationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDDCBC27B03BFFEDC91A49B /* ClassificationEngine.swift */; };
+		FEA219B6D3A0DCEC7108CF93 /* LaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A6BB658D6A734369045A1 /* LaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2CD379495111FC21D59FB734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39BEDA47E5259661B2672574 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACE1BF677F042BC513B5EDCF;
+			remoteInfo = XiaoYuWorkspace;
+		};
+		B8A8D6AC2A9C45A92FEFA3D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39BEDA47E5259661B2672574 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACE1BF677F042BC513B5EDCF;
+			remoteInfo = XiaoYuWorkspace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		088A8E8D688571FF59EB73D3 /* JEVModelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JEVModelClient.swift; sourceTree = "<group>"; };
+		18F5CE8D1C4D80CBDBA08D0B /* ProjectChangeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectChangeMonitor.swift; sourceTree = "<group>"; };
+		1F38564073CAB3472CA05226 /* XiaoYuWorkspaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XiaoYuWorkspaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2663DDD4DE0D75598FD637F1 /* OpenRouterAPIKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterAPIKeyStore.swift; sourceTree = "<group>"; };
+		2715B59F0A5F487C80FB8AB4 /* OpenRouterJEVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterJEVTests.swift; sourceTree = "<group>"; };
+		303808BCB154A8F3E089C1D2 /* JournalSubmissionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSubmissionRecord.swift; sourceTree = "<group>"; };
+		37C5C311511FB48DB9A4947B /* ActivityLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLogStore.swift; sourceTree = "<group>"; };
+		37E1E9271055E0C83E027F10 /* TrashRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashRecord.swift; sourceTree = "<group>"; };
+		3D8A00045493692E91CF266B /* JEVClassificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JEVClassificationTests.swift; sourceTree = "<group>"; };
+		49D02B26B90FAB80E2685C5B /* JournalSubmissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSubmissionService.swift; sourceTree = "<group>"; };
+		4C9A484F62D8A995B4088DC1 /* ClassificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationTests.swift; sourceTree = "<group>"; };
+		51EFCF6DEF1B053C73D72014 /* WorkspaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceTests.swift; sourceTree = "<group>"; };
+		5835C827AAFDD1FC1A894E7A /* WorkspaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceModel.swift; sourceTree = "<group>"; };
+		5C3BB06C08ACC993AA61C210 /* XiaoYuWorkspaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XiaoYuWorkspaceApp.swift; sourceTree = "<group>"; };
+		6C29C7E56522526E794F25EE /* ProjectChangeMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectChangeMonitorTests.swift; sourceTree = "<group>"; };
+		73F7036ED4A2CC6AB0A536CF /* IndexCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexCacheService.swift; sourceTree = "<group>"; };
+		7C485CD254D66034B9564B7C /* JournalCoverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCoverService.swift; sourceTree = "<group>"; };
+		7DA35481FC734DD221C05693 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
+		7E9125BCA694CA1DAD5CB44F /* WorkspaceRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceRootView.swift; sourceTree = "<group>"; };
+		7FAEE4743C80C3D9B42D3BBB /* ProjectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRecord.swift; sourceTree = "<group>"; };
+		8AAA38400A97448BE7E1F4F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D8A6BB658D6A734369045A1 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
+		985222FAC92F8E4BEA8051C1 /* ProjectAccessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAccessService.swift; sourceTree = "<group>"; };
+		A6CE74ADA39657E696C0C493 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePalette.swift; sourceTree = "<group>"; };
+		B5F90FDB6ACF0FA0961AAAA0 /* FileOpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenService.swift; sourceTree = "<group>"; };
+		BFF4B1FB3C08970814F5AFB2 /* WorkspaceCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCommands.swift; sourceTree = "<group>"; };
+		C003AA2DA94D15F4DBE83D98 /* XiaoYuWorkspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XiaoYuWorkspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C06DCEDA8BA0C0626DDF0EE2 /* FileAnnotationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAnnotationService.swift; sourceTree = "<group>"; };
+		C6F398B29BF7BA7C023BEBCD /* JEVContentExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JEVContentExtractor.swift; sourceTree = "<group>"; };
+		D15C64F41DD5FCDF09E46A3E /* FileOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationTests.swift; sourceTree = "<group>"; };
+		D385F9799E5B4EE814A784D3 /* ScannedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedFile.swift; sourceTree = "<group>"; };
+		DDF707A758F9BA8DED5D8152 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
+		EAE21F2E44077646CB884B73 /* ProjectStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStage.swift; sourceTree = "<group>"; };
+		F121AC4AFBA588124570BB74 /* XiaoYuWorkspaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XiaoYuWorkspaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7E1D52D15DAA6FA9111DE18 /* FileAnnotationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAnnotationRecord.swift; sourceTree = "<group>"; };
+		F8EBD346FD2E224BE88D132C /* AnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationTests.swift; sourceTree = "<group>"; };
+		FAA28A9CD71F2622252D7BDF /* WorkspaceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceSettingsView.swift; sourceTree = "<group>"; };
+		FAD85F3A4A65B76B485D4B01 /* FileOperationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationService.swift; sourceTree = "<group>"; };
+		FDBA5EE49030F2DE0E3A1803 /* ProjectScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectScanService.swift; sourceTree = "<group>"; };
+		FEDDCBC27B03BFFEDC91A49B /* ClassificationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationEngine.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0392025D07B59866EFB65056 /* Classification */ = {
+			isa = PBXGroup;
+			children = (
+				FEDDCBC27B03BFFEDC91A49B /* ClassificationEngine.swift */,
+			);
+			path = Classification;
+			sourceTree = "<group>";
+		};
+		07EB8AEFA2A9EE294B5D0212 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F7E1D52D15DAA6FA9111DE18 /* FileAnnotationRecord.swift */,
+				303808BCB154A8F3E089C1D2 /* JournalSubmissionRecord.swift */,
+				7FAEE4743C80C3D9B42D3BBB /* ProjectRecord.swift */,
+				EAE21F2E44077646CB884B73 /* ProjectStage.swift */,
+				D385F9799E5B4EE814A784D3 /* ScannedFile.swift */,
+				37E1E9271055E0C83E027F10 /* TrashRecord.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4A6CF1F50C4D282609EC1EBD /* XiaoYuWorkspaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EBD346FD2E224BE88D132C /* AnnotationTests.swift */,
+				4C9A484F62D8A995B4088DC1 /* ClassificationTests.swift */,
+				D15C64F41DD5FCDF09E46A3E /* FileOperationTests.swift */,
+				3D8A00045493692E91CF266B /* JEVClassificationTests.swift */,
+				7DA35481FC734DD221C05693 /* JournalTests.swift */,
+				2715B59F0A5F487C80FB8AB4 /* OpenRouterJEVTests.swift */,
+				6C29C7E56522526E794F25EE /* ProjectChangeMonitorTests.swift */,
+				DDF707A758F9BA8DED5D8152 /* SearchTests.swift */,
+				51EFCF6DEF1B053C73D72014 /* WorkspaceTests.swift */,
+			);
+			path = XiaoYuWorkspaceTests;
+			sourceTree = "<group>";
+		};
+		87EA82E2F18E3C12AB69692C = {
+			isa = PBXGroup;
+			children = (
+				8F45C63ECE981732632D6CD3 /* XiaoYuWorkspace */,
+				4A6CF1F50C4D282609EC1EBD /* XiaoYuWorkspaceTests */,
+				BD02F1298833ED89EFD298AF /* XiaoYuWorkspaceUITests */,
+				B117FE2386B19DC9721D064D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F45C63ECE981732632D6CD3 /* XiaoYuWorkspace */ = {
+			isa = PBXGroup;
+			children = (
+				AA22FBB6C51C7810DA96BECB /* App */,
+				0392025D07B59866EFB65056 /* Classification */,
+				07EB8AEFA2A9EE294B5D0212 /* Domain */,
+				C7CD95141D81757E1343B201 /* Features */,
+				CA278C3E1D9C330FF266689F /* Resources */,
+				96FB76EE26140AB000B48306 /* Services */,
+			);
+			path = XiaoYuWorkspace;
+			sourceTree = "<group>";
+		};
+		96FB76EE26140AB000B48306 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				37C5C311511FB48DB9A4947B /* ActivityLogStore.swift */,
+				C06DCEDA8BA0C0626DDF0EE2 /* FileAnnotationService.swift */,
+				B5F90FDB6ACF0FA0961AAAA0 /* FileOpenService.swift */,
+				FAD85F3A4A65B76B485D4B01 /* FileOperationService.swift */,
+				73F7036ED4A2CC6AB0A536CF /* IndexCacheService.swift */,
+				C6F398B29BF7BA7C023BEBCD /* JEVContentExtractor.swift */,
+				088A8E8D688571FF59EB73D3 /* JEVModelClient.swift */,
+				7C485CD254D66034B9564B7C /* JournalCoverService.swift */,
+				49D02B26B90FAB80E2685C5B /* JournalSubmissionService.swift */,
+				2663DDD4DE0D75598FD637F1 /* OpenRouterAPIKeyStore.swift */,
+				985222FAC92F8E4BEA8051C1 /* ProjectAccessService.swift */,
+				18F5CE8D1C4D80CBDBA08D0B /* ProjectChangeMonitor.swift */,
+				FDBA5EE49030F2DE0E3A1803 /* ProjectScanService.swift */,
+				A6CE74ADA39657E696C0C493 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA22FBB6C51C7810DA96BECB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BFF4B1FB3C08970814F5AFB2 /* WorkspaceCommands.swift */,
+				5C3BB06C08ACC993AA61C210 /* XiaoYuWorkspaceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B117FE2386B19DC9721D064D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C003AA2DA94D15F4DBE83D98 /* XiaoYuWorkspace.app */,
+				1F38564073CAB3472CA05226 /* XiaoYuWorkspaceTests.xctest */,
+				F121AC4AFBA588124570BB74 /* XiaoYuWorkspaceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD02F1298833ED89EFD298AF /* XiaoYuWorkspaceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8D8A6BB658D6A734369045A1 /* LaunchTests.swift */,
+			);
+			path = XiaoYuWorkspaceUITests;
+			sourceTree = "<group>";
+		};
+		C7CD95141D81757E1343B201 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */,
+				5835C827AAFDD1FC1A894E7A /* WorkspaceModel.swift */,
+				7E9125BCA694CA1DAD5CB44F /* WorkspaceRootView.swift */,
+				FAA28A9CD71F2622252D7BDF /* WorkspaceSettingsView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		CA278C3E1D9C330FF266689F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AAA38400A97448BE7E1F4F7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19AC5C2735D82D1B93352722 /* XiaoYuWorkspaceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D3095A5D2501323D78B6F8A /* Build configuration list for PBXNativeTarget "XiaoYuWorkspaceUITests" */;
+			buildPhases = (
+				5353927E669591D3D6C8979D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C4185E20801D1490F8F1660 /* PBXTargetDependency */,
+			);
+			name = XiaoYuWorkspaceUITests;
+			packageProductDependencies = (
+			);
+			productName = XiaoYuWorkspaceUITests;
+			productReference = F121AC4AFBA588124570BB74 /* XiaoYuWorkspaceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		620049CA2E66588F5A0F15EC /* XiaoYuWorkspaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5651D4C2BBFB598B71BD72F /* Build configuration list for PBXNativeTarget "XiaoYuWorkspaceTests" */;
+			buildPhases = (
+				4EF215F7634C115FE30CBADE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA14755AE8B61E9E9DF0E4C8 /* PBXTargetDependency */,
+			);
+			name = XiaoYuWorkspaceTests;
+			packageProductDependencies = (
+			);
+			productName = XiaoYuWorkspaceTests;
+			productReference = 1F38564073CAB3472CA05226 /* XiaoYuWorkspaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACE1BF677F042BC513B5EDCF /* XiaoYuWorkspace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A87654725947C380E8042B6 /* Build configuration list for PBXNativeTarget "XiaoYuWorkspace" */;
+			buildPhases = (
+				0A61D1645E39FC4236CFFB8C /* Sources */,
+				AE1ABA619048E9C241ED5033 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XiaoYuWorkspace;
+			packageProductDependencies = (
+			);
+			productName = XiaoYuWorkspace;
+			productReference = C003AA2DA94D15F4DBE83D98 /* XiaoYuWorkspace.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39BEDA47E5259661B2672574 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					19AC5C2735D82D1B93352722 = {
+						TestTargetID = ACE1BF677F042BC513B5EDCF;
+					};
+				};
+			};
+			buildConfigurationList = 7D36139AEC14F19D292AD60F /* Build configuration list for PBXProject "XiaoYuWorkspace" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 87EA82E2F18E3C12AB69692C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B117FE2386B19DC9721D064D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACE1BF677F042BC513B5EDCF /* XiaoYuWorkspace */,
+				620049CA2E66588F5A0F15EC /* XiaoYuWorkspaceTests */,
+				19AC5C2735D82D1B93352722 /* XiaoYuWorkspaceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE1ABA619048E9C241ED5033 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3F5D5AF88C44A42E98B24B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A61D1645E39FC4236CFFB8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706731D0EFE0839F021BA4F /* ActivityLogStore.swift in Sources */,
+				F0B7605C80124E966952F53F /* ClassificationEngine.swift in Sources */,
+				220870E6905E9CD893C69A84 /* FileAnnotationRecord.swift in Sources */,
+				BFEDF3360B4AC4F4A05BD782 /* FileAnnotationService.swift in Sources */,
+				E92C692BC32C0C1041964B63 /* FileOpenService.swift in Sources */,
+				4D3A9A1CE91249486F77642F /* FileOperationService.swift in Sources */,
+				97ABEC481792D21E1DB2B612 /* IndexCacheService.swift in Sources */,
+				BCAEBD4A3E3401DA54DD97E0 /* JEVContentExtractor.swift in Sources */,
+				D26077B754382A622AF0AFE6 /* JEVModelClient.swift in Sources */,
+				ADAC2BD5F2B431DD016C2FAF /* JournalCoverService.swift in Sources */,
+				2F05EA1EFCE420CCA6C22D49 /* JournalSubmissionRecord.swift in Sources */,
+				BF2E63791A759E50A9EAD9C4 /* JournalSubmissionService.swift in Sources */,
+				CF073D2579D6372588815910 /* OpenRouterAPIKeyStore.swift in Sources */,
+				00DBB47157854434F12CB885 /* ProjectAccessService.swift in Sources */,
+				48229D42606738EB9D46C442 /* ProjectChangeMonitor.swift in Sources */,
+				7FDC5E7AFCBC1977B4001FED /* ProjectRecord.swift in Sources */,
+				9A819A304D09D30144472E57 /* ProjectScanService.swift in Sources */,
+				60E386B59D8F025019392632 /* ProjectStage.swift in Sources */,
+				E96F0A5B709AC0C4E582AADC /* ScannedFile.swift in Sources */,
+				D94BBDD580FE9F4319014647 /* SearchService.swift in Sources */,
+				6685AEC2C5BCEACBF25AD3FC /* ThemePalette.swift in Sources */,
+				CDEC3582936B7C693BE0F627 /* TrashRecord.swift in Sources */,
+				76104431D1EEF7B131DBCB5D /* WorkspaceCommands.swift in Sources */,
+				A4DECD437C81E80FD5D547FF /* WorkspaceModel.swift in Sources */,
+				29F9987E5DB01C51EC7380FA /* WorkspaceRootView.swift in Sources */,
+				72341E561C804BB6307AFA54 /* WorkspaceSettingsView.swift in Sources */,
+				E33B574060C298726FD7AD54 /* XiaoYuWorkspaceApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EF215F7634C115FE30CBADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E38BFF24EF619D726D463C6 /* AnnotationTests.swift in Sources */,
+				B21B39A9BBA6F8E2B42F48C4 /* ClassificationTests.swift in Sources */,
+				347C464FAB543CE16358BCFC /* FileOperationTests.swift in Sources */,
+				0B2491A060683F1009FD7AAC /* JEVClassificationTests.swift in Sources */,
+				83806D957B62BC28870BE968 /* JournalTests.swift in Sources */,
+				EC35DA76E6AA999D05917520 /* OpenRouterJEVTests.swift in Sources */,
+				72A0212FC16089F34CDF7888 /* ProjectChangeMonitorTests.swift in Sources */,
+				048AB65A18BBBF0440D82B99 /* SearchTests.swift in Sources */,
+				40DBE4015E827DB1D9A5377B /* WorkspaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5353927E669591D3D6C8979D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEA219B6D3A0DCEC7108CF93 /* LaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C4185E20801D1490F8F1660 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACE1BF677F042BC513B5EDCF /* XiaoYuWorkspace */;
+			targetProxy = B8A8D6AC2A9C45A92FEFA3D7 /* PBXContainerItemProxy */;
+		};
+		DA14755AE8B61E9E9DF0E4C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACE1BF677F042BC513B5EDCF /* XiaoYuWorkspace */;
+			targetProxy = 2CD379495111FC21D59FB734 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09D08BB3C66660CEAD708A10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XiaoYuWorkspace/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27;
+				PRODUCT_MODULE_NAME = XiaoYuWorkspace;
+				PRODUCT_NAME = "小鱼工作台";
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Release;
+		};
+		4793E1319DC311D8456FA0DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = XiaoYuWorkspace;
+			};
+			name = Debug;
+		};
+		6AFEDAB5F6507154AA356FE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = XiaoYuWorkspace/App/XiaoYuWorkspace.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "小鱼工作台";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				VALID_ARCHS = arm64;
+			};
+			name = Debug;
+		};
+		75161AB8A262DF1AAA028101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = XiaoYuWorkspace/App/XiaoYuWorkspace.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "小鱼工作台";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				VALID_ARCHS = arm64;
+			};
+			name = Release;
+		};
+		8509FE4A12A2276AD83CF310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/小鱼工作台.app/Contents/MacOS/小鱼工作台";
+			};
+			name = Release;
+		};
+		8A74DBF148045BFFE050DADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = XiaoYuWorkspace;
+			};
+			name = Release;
+		};
+		D18C3DE3D01A2582F9303E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/小鱼工作台.app/Contents/MacOS/小鱼工作台";
+			};
+			name = Debug;
+		};
+		E2ABD2249EC739FACAABF1D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = XiaoYuWorkspace/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyu.workspace.native27;
+				PRODUCT_MODULE_NAME = XiaoYuWorkspace;
+				PRODUCT_NAME = "小鱼工作台";
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A87654725947C380E8042B6 /* Build configuration list for PBXNativeTarget "XiaoYuWorkspace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2ABD2249EC739FACAABF1D9 /* Debug */,
+				09D08BB3C66660CEAD708A10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3D3095A5D2501323D78B6F8A /* Build configuration list for PBXNativeTarget "XiaoYuWorkspaceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4793E1319DC311D8456FA0DD /* Debug */,
+				8A74DBF148045BFFE050DADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7D36139AEC14F19D292AD60F /* Build configuration list for PBXProject "XiaoYuWorkspace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AFEDAB5F6507154AA356FE0 /* Debug */,
+				75161AB8A262DF1AAA028101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C5651D4C2BBFB598B71BD72F /* Build configuration list for PBXNativeTarget "XiaoYuWorkspaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D18C3DE3D01A2582F9303E25 /* Debug */,
+				8509FE4A12A2276AD83CF310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39BEDA47E5259661B2672574 /* Project object */;
+}
