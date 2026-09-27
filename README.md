@@ -52,7 +52,7 @@
 
 ### 保密文件与替代方案
 
-**保密文件请勿使用内置 Jev 自动分类。**该功能会把提取的文本片段发送给 OpenRouter。手动分类和按文件名、目录规则进行的基础分类无需调用 Jev
+> **保密提醒：** 准确分类会将文件中的文本片段发送至 OpenRouter，保密文件请勿使用；手动分类和基础分类无需调用 Jev
 
 如需数据留在本机，可考虑部署开源的 [Kev 决策模型](https://github.com/jaredpalmer/kev)；也可针对自己的科研方向，基于 [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B)、[Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B) 或 [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) 等稠密模型准备标注数据并训练。**当前应用尚未接入这些本地模型**；部署、标注和训练需要额外硬件与时间，个人使用规模下的前期成本可能高于直接调用 API
 
