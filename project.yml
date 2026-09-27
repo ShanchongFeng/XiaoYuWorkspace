@@ -2,11 +2,11 @@ name: XiaoYuWorkspace
 options:
   bundleIdPrefix: com.xiaoyu
   deploymentTarget:
-    macOS: "27.0"
+    macOS: "15.0"
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MACOSX_DEPLOYMENT_TARGET: "27.0"
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
     ARCHS: arm64
     VALID_ARCHS: arm64
     GENERATE_INFOPLIST_FILE: YES
