@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDevelopmentRegion</key><string>en</string>
-    <key>CFBundleDisplayName</key><string>小鱼工作台</string>
+    <key>CFBundleDisplayName</key><string>XiaoYu Workspace</string>
     <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIconFile</key><string>AppIcon</string>
     <key>CFBundleIconName</key><string>AppIcon</string>
     <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
-    <key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+    <key>CFBundleName</key><string>XiaoYu Workspace</string>
     <key>CFBundlePackageType</key><string>APPL</string>
-    <key>CFBundleShortVersionString</key><string>0.2.24</string>
-    <key>CFBundleVersion</key><string>26</string>
+    <key>CFBundleShortVersionString</key><string>0.2.25</string>
+    <key>CFBundleVersion</key><string>27</string>
     <key>LSApplicationCategoryType</key><string>public.app-category.productivity</string>
     <key>LSMinimumSystemVersion</key><string>$(MACOSX_DEPLOYMENT_TARGET)</string>
     <key>UTExportedTypeDeclarations</key>

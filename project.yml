@@ -11,7 +11,7 @@ settings:
     VALID_ARCHS: arm64
     GENERATE_INFOPLIST_FILE: YES
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-    INFOPLIST_KEY_CFBundleDisplayName: 小鱼工作台
+    INFOPLIST_KEY_CFBundleDisplayName: XiaoYu Workspace
     INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
     CODE_SIGN_ENTITLEMENTS: XiaoYuWorkspace/App/XiaoYuWorkspace.entitlements
     ENABLE_HARDENED_RUNTIME: YES

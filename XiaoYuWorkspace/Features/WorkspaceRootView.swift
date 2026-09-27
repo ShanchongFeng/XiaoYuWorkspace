@@ -19,6 +19,7 @@ struct WorkspaceDraggedFile: Codable, Transferable {
 
 struct WorkspaceRootView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.locale) private var locale
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.undoManager) private var undoManager
     @State private var model = WorkspaceModel()
@@ -119,7 +120,7 @@ struct WorkspaceRootView: View {
         )) {
             Button("好", role: .cancel) { model.errorMessage = nil }
         } message: {
-            Text(model.errorMessage ?? "未知错误")
+            Text(AppLanguage.operationStatus(model.errorMessage ?? "未知错误", locale: locale))
         }
         .confirmationDialog("解除文件夹关联？", isPresented: Binding(
             get: { linkedFolderToRemove != nil },
@@ -189,7 +190,9 @@ struct WorkspaceRootView: View {
         .sheet(item: $model.conflictPrompt) { prompt in
             VStack(alignment: .leading, spacing: 14) {
                 Text("目标位置已有同名项目").font(.headline)
-                Text("“\(prompt.name)”已存在于“\(prompt.destination)”。请选择如何处理。")
+                Text(AppLanguage.isEnglish(locale)
+                     ? "“\(prompt.name)” already exists in “\(prompt.destination)”. Choose how to proceed"
+                     : "“\(prompt.name)”已存在于“\(prompt.destination)”。请选择如何处理。")
                     .fixedSize(horizontal: false, vertical: true)
                 Toggle("对后续同名项目使用此选择", isOn: $conflictApplyToAll)
                 HStack {
@@ -212,7 +215,8 @@ struct WorkspaceRootView: View {
         }
         .sheet(isPresented: $journalFormPresented) {
             VStack(alignment: .leading, spacing: 16) {
-                Text(editingJournalID == nil ? "新建投稿期刊" : "编辑投稿期刊")
+                Text(AppLanguage.text(editingJournalID == nil
+                                      ? "新建投稿期刊" : "编辑投稿期刊", locale: locale))
                     .font(.headline)
                 TextField("期刊名称", text: $journalName)
                     .textFieldStyle(.roundedBorder)
@@ -268,7 +272,8 @@ struct WorkspaceRootView: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel(projectsExpanded ? "收起项目列表" : "展开项目列表")
+                .accessibilityLabel(AppLanguage.text(
+                    projectsExpanded ? "收起项目列表" : "展开项目列表", locale: locale))
                 .padding(.leading, 14)
                 .padding(.top, 10)
                 .padding(.bottom, 5)
@@ -351,7 +356,7 @@ struct WorkspaceRootView: View {
     }
 
     private func sidebarSectionTitle(_ title: String) -> some View {
-        Text(title)
+        Text(AppLanguage.text(title, locale: locale))
             .font(.caption.weight(.semibold))
             .foregroundStyle(.secondary)
             .padding(.leading, 14)
@@ -361,7 +366,7 @@ struct WorkspaceRootView: View {
 
     private func projectSidebarRow(_ project: ProjectRecord) -> some View {
         sidebarProjectButton(project.displayName, systemImage: "folder",
-                             location: .project(project.id))
+                             location: .project(project.id), translatesTitle: false)
             .contextMenu {
                 Button("在访达中显示") {
                     model.selectProject(project.id)
@@ -382,7 +387,8 @@ struct WorkspaceRootView: View {
     }
 
     private func sidebarProjectButton(_ title: String, systemImage: String,
-                                      location: WorkspaceLocation) -> some View {
+                                      location: WorkspaceLocation,
+                                      translatesTitle: Bool = true) -> some View {
         Button {
             model.location = location
             switch location {
@@ -392,6 +398,7 @@ struct WorkspaceRootView: View {
             }
         } label: {
             SidebarNavigationLabel(title, systemImage: systemImage,
+                                   translatesTitle: translatesTitle,
                                    isSelected: model.location == location)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 12)
@@ -491,7 +498,9 @@ struct WorkspaceRootView: View {
                                 .frame(width: 48)
                             VStack(alignment: .leading, spacing: 7) {
                                 Text(project.displayName).font(.headline).lineLimit(1)
-                                Text("上次打开：\(project.lastOpenedAt?.formatted(date: .abbreviated, time: .shortened) ?? "尚未打开")")
+                                Text(AppLanguage.isEnglish(locale)
+                                     ? "Last opened: \(project.lastOpenedAt?.formatted(date: .abbreviated, time: .shortened) ?? "Never opened")"
+                                     : "上次打开：\(project.lastOpenedAt?.formatted(date: .abbreviated, time: .shortened) ?? "尚未打开")")
                                     .font(.caption).foregroundStyle(.secondary)
                             }
                             Spacer(minLength: 8)
@@ -530,14 +539,15 @@ struct WorkspaceRootView: View {
         }
         }
         }
-        .navigationTitle("全部项目")
+        .navigationTitle(AppLanguage.text("全部项目", locale: locale))
     }
 
     private func allProjectsHeader(count: Int) -> some View {
         HStack(alignment: .firstTextBaseline) {
             Text("全部项目").font(.largeTitle).bold()
             Spacer()
-            Text("\(count) 个项目").foregroundStyle(.secondary)
+            Text(AppLanguage.isEnglish(locale) ? "\(count) projects" : "\(count) 个项目")
+                .foregroundStyle(.secondary)
         }
     }
 
@@ -571,7 +581,7 @@ struct WorkspaceRootView: View {
                     .padding(28)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .navigationTitle("投稿期刊")
+                .navigationTitle(AppLanguage.text("投稿期刊", locale: locale))
             }
         }
     }
@@ -584,7 +594,9 @@ struct WorkspaceRootView: View {
                     HStack(alignment: .top, spacing: 16) {
                         VStack(alignment: .leading, spacing: 5) {
                             Text(project.displayName).font(.largeTitle).bold()
-                            Text("\(model.files.count) 个文件与文件夹")
+                            Text(AppLanguage.isEnglish(locale)
+                                 ? "\(model.files.count) files and folders"
+                                 : "\(model.files.count) 个文件与文件夹")
                                 .foregroundStyle(.secondary)
                         }
                         Spacer()
@@ -641,7 +653,7 @@ struct WorkspaceRootView: View {
                             model.location = .category(category.rawValue)
                         } label: {
                             HStack {
-                                Text(category.rawValue)
+                                Text(AppLanguage.text(category.rawValue, locale: locale))
                                 Spacer()
                                 Text(model.count(in: category).formatted())
                                     .foregroundStyle(.secondary)
@@ -684,7 +696,8 @@ struct WorkspaceRootView: View {
             .padding(28)
         }
         }
-        .navigationTitle(model.currentProject?.displayName ?? "小鱼工作台")
+        .navigationTitle(model.currentProject?.displayName
+                         ?? AppLanguage.text("小鱼工作台", locale: locale))
         .toolbar {
             if model.isScanning {
                 ToolbarItem(placement: .status) { ProgressView().controlSize(.small) }
@@ -712,9 +725,12 @@ struct WorkspaceRootView: View {
                     .simultaneousGesture(TapGesture(count: 2).onEnded { model.enter(file) })
                 }
                 .width(min: 260, ideal: 400)
-                TableColumn("种类", value: \.kind)
+                TableColumn("种类", value: \.kind) { file in
+                    Text(AppLanguage.fileKind(file.kind, locale: locale))
+                }
                 TableColumn("分类") { file in
-                    Text(model.classification(for: file).workflow.rawValue)
+                    Text(AppLanguage.text(model.classification(for: file).workflow.rawValue,
+                                          locale: locale))
                 }
                 TableColumn("大小") { file in
                     Text(file.size.map {
@@ -795,10 +811,12 @@ struct WorkspaceRootView: View {
             model.selectedFilePaths = [file.relativePath]
             model.cutSelected()
         }
-        Button(model.annotation(for: file)?.isFavorite == true ? "取消收藏" : "收藏") {
+        Button(AppLanguage.text(model.annotation(for: file)?.isFavorite == true
+                                ? "取消收藏" : "收藏", locale: locale)) {
             model.toggleFavorite(file)
         }
-        Button(model.annotation(for: file)?.pinnedAt == nil ? "置顶" : "取消置顶") {
+        Button(AppLanguage.text(model.annotation(for: file)?.pinnedAt == nil
+                                ? "置顶" : "取消置顶", locale: locale)) {
             model.togglePin(file)
         }
         if !file.isBrowsableFolder {
@@ -808,9 +826,10 @@ struct WorkspaceRootView: View {
                         model.setManualWorkflow(category, for: file)
                     } label: {
                         if model.classification(for: file).workflow == category {
-                            Label(category.rawValue, systemImage: "checkmark")
+                            Label(AppLanguage.text(category.rawValue, locale: locale),
+                                  systemImage: "checkmark")
                         } else {
-                            Text(category.rawValue)
+                            Text(AppLanguage.text(category.rawValue, locale: locale))
                         }
                     }
                 }
@@ -870,7 +889,7 @@ struct WorkspaceRootView: View {
                         Spacer()
                         Text(record.isAvailable
                              ? record.trashedAt.formatted(date: .abbreviated, time: .shortened)
-                             : "原文件已不可用")
+                             : AppLanguage.text("原文件已不可用", locale: locale))
                             .font(.caption).foregroundStyle(.secondary)
                         Button("恢复") { model.restore(record) }
                             .disabled(!record.isAvailable || model.isOperating)
@@ -884,20 +903,20 @@ struct WorkspaceRootView: View {
                 }
             }
         }
-        .navigationTitle("废纸篓")
+        .navigationTitle(AppLanguage.text("废纸篓", locale: locale))
     }
 
     private var browserTitle: String {
         if !model.folderPath.isEmpty { return (model.folderPath as NSString).lastPathComponent }
         return switch model.location {
-        case .allProjects: "全部项目"
-        case .journals: "投稿期刊"
-        case .allFiles: "全部文件"
-        case .recent: "最近修改"
-        case .favorites: "收藏"
-        case .trash: "废纸篓"
-        case .category(let category): category
-        default: model.currentProject?.displayName ?? "文件"
+        case .allProjects: AppLanguage.text("全部项目", locale: locale)
+        case .journals: AppLanguage.text("投稿期刊", locale: locale)
+        case .allFiles: AppLanguage.text("全部文件", locale: locale)
+        case .recent: AppLanguage.text("最近修改", locale: locale)
+        case .favorites: AppLanguage.text("收藏", locale: locale)
+        case .trash: AppLanguage.text("废纸篓", locale: locale)
+        case .category(let category): AppLanguage.text(category, locale: locale)
+        default: model.currentProject?.displayName ?? AppLanguage.text("文件", locale: locale)
         }
     }
 
@@ -906,26 +925,32 @@ struct WorkspaceRootView: View {
             if let file = model.selectedFile {
                 Section("常规") {
                     LabeledContent("名称", value: file.name)
-                    LabeledContent("种类", value: file.kind)
+                    LabeledContent("种类", value: AppLanguage.fileKind(file.kind, locale: locale))
                     if let size = file.size {
                         LabeledContent("大小", value: ByteCountFormatter.string(fromByteCount: size, countStyle: .file))
                     }
                 }
                 Section("科研分类") {
-                    LabeledContent("工作流", value: model.classification(for: file).workflow.rawValue)
-                    LabeledContent("科学领域", value: model.classification(for: file).domain)
-                    LabeledContent("格式", value: model.classification(for: file).format)
-                    LabeledContent("用途", value: model.classification(for: file).role)
+                    LabeledContent("工作流", value: AppLanguage.text(
+                        model.classification(for: file).workflow.rawValue, locale: locale))
+                    LabeledContent("科学领域", value: AppLanguage.text(
+                        model.classification(for: file).domain, locale: locale))
+                    LabeledContent("格式", value: AppLanguage.text(
+                        model.classification(for: file).format, locale: locale))
+                    LabeledContent("用途", value: AppLanguage.text(
+                        model.classification(for: file).role, locale: locale))
                     Picker("手动分类", selection: Binding<WorkflowCategory?>(
                         get: { model.annotation(for: file)?.manualWorkflowRaw.flatMap(WorkflowCategory.init(rawValue:)) },
                         set: { model.setManualWorkflow($0, for: file) }
                     )) {
                         Text("自动").tag(nil as WorkflowCategory?)
                         ForEach(WorkflowCategory.allCases, id: \.self) { category in
-                            Text(category.rawValue).tag(Optional(category))
+                            Text(AppLanguage.text(category.rawValue, locale: locale))
+                                .tag(Optional(category))
                         }
                     }
-                    Text(model.classification(for: file).explanation)
+                    Text(AppLanguage.classificationExplanation(
+                        model.classification(for: file), locale: locale))
                         .font(.caption).foregroundStyle(.secondary)
                 }
                 Section("研究元数据") {
@@ -1027,6 +1052,7 @@ struct WorkspaceRootView: View {
 }
 
 private struct ProjectStatusMenu: View {
+    @Environment(\.locale) private var locale
     let project: ProjectRecord
     let model: WorkspaceModel
     @State private var showingStages = false
@@ -1034,7 +1060,7 @@ private struct ProjectStatusMenu: View {
     var body: some View {
         Button { showingStages = true } label: {
             HStack(spacing: 6) {
-                Text(project.status)
+                Text(AppLanguage.text(project.status, locale: locale))
                     .lineLimit(1)
                 Image(systemName: "chevron.down")
                     .font(.system(size: 9, weight: .bold))
@@ -1065,7 +1091,7 @@ private struct ProjectStatusMenu: View {
                             Circle()
                                 .fill(color(for: stage))
                                 .frame(width: 12, height: 12)
-                            Text(stage.rawValue)
+                            Text(AppLanguage.text(stage.rawValue, locale: locale))
                             Spacer(minLength: 8)
                             if project.status == stage.rawValue {
                                 Image(systemName: "checkmark")
@@ -1084,7 +1110,9 @@ private struct ProjectStatusMenu: View {
             .presentationBackground(.ultraThinMaterial)
         }
         .help("选择项目阶段")
-        .accessibilityLabel("项目状态：\(project.status)，点击选择阶段")
+        .accessibilityLabel(AppLanguage.isEnglish(locale)
+                            ? "Project status: \(AppLanguage.text(project.status, locale: locale)); choose a stage"
+                            : "项目状态：\(project.status)，点击选择阶段")
     }
 
     private var backgroundColor: Color {
@@ -1133,20 +1161,24 @@ private extension Color {
 }
 
 private struct SidebarNavigationLabel: View {
+    @Environment(\.locale) private var locale
     @AppStorage("themeColorHex") private var themeColorHex = ThemePalette.defaultHex
     let title: String
     let systemImage: String
+    let translatesTitle: Bool
     let isSelected: Bool
 
-    init(_ title: String, systemImage: String, isSelected: Bool) {
+    init(_ title: String, systemImage: String, translatesTitle: Bool = true,
+         isSelected: Bool) {
         self.title = title
         self.systemImage = systemImage
+        self.translatesTitle = translatesTitle
         self.isSelected = isSelected
     }
 
     var body: some View {
         Label {
-            Text(title)
+            Text(translatesTitle ? AppLanguage.text(title, locale: locale) : title)
                 .foregroundStyle(isSelected ? ThemePalette.contrastingColor(for: themeColorHex) : .primary)
         } icon: {
             Image(SidebarIcon.assetName(for: systemImage))
@@ -1227,6 +1259,7 @@ private struct CategorySidebarRow: View {
 
 private struct JournalRow: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.locale) private var locale
     @AppStorage("themeColorHex") private var themeColorHex = ThemePalette.defaultHex
     let journal: JournalSubmissionRecord
     let model: WorkspaceModel
@@ -1253,7 +1286,9 @@ private struct JournalRow: View {
                 }
                     .buttonStyle(.plain)
                     .help("打开期刊网站")
-                    .accessibilityLabel("打开\(journal.name)的期刊网站")
+                    .accessibilityLabel(AppLanguage.isEnglish(locale)
+                                        ? "Open the website for \(journal.name)"
+                                        : "打开\(journal.name)的期刊网站")
                     .contextMenu {
                         Button("编辑封面…") { importingCover = true }
                         Button("刷新封面") { model.refreshJournalCover(journal) }
@@ -1270,7 +1305,9 @@ private struct JournalRow: View {
                     }
                 VStack(alignment: .leading, spacing: 9) {
                     Text(journal.name).font(.title3).bold().lineLimit(2)
-                    Text("\(linkedFileCount) 个关联文件")
+                    Text(AppLanguage.isEnglish(locale)
+                         ? "\(linkedFileCount) linked files"
+                         : "\(linkedFileCount) 个关联文件")
                         .font(.caption).foregroundStyle(.secondary)
                     HStack(spacing: 14) {
                         if let url = JournalCoverService.validWebURL(journal.website) {
@@ -1313,7 +1350,8 @@ private struct JournalRow: View {
                         .rotationEffect(.degrees(isExpanded ? 180 : 0))
                 }
                 .buttonStyle(.borderless)
-                .accessibilityLabel(isExpanded ? "收起投稿文件" : "展开投稿文件")
+                .accessibilityLabel(AppLanguage.text(
+                    isExpanded ? "收起投稿文件" : "展开投稿文件", locale: locale))
             }
             if isExpanded {
                 VStack(alignment: .leading, spacing: 12) {
@@ -1329,7 +1367,11 @@ private struct JournalRow: View {
                             FileIconView(fileName: (link.relativePath as NSString).lastPathComponent)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text((link.relativePath as NSString).lastPathComponent).lineLimit(1)
-                                Text(file == nil ? "文件已移动或不可用 · \(model.displayPath(link.relativePath))" : model.displayPath(link.relativePath))
+                                Text(file == nil
+                                     ? (AppLanguage.isEnglish(locale)
+                                        ? "Moved or unavailable · \(model.displayPath(link.relativePath))"
+                                        : "文件已移动或不可用 · \(model.displayPath(link.relativePath))")
+                                     : model.displayPath(link.relativePath))
                                     .font(.caption).foregroundStyle(.secondary).lineLimit(1)
                             }
                             Spacer()
@@ -1369,7 +1411,9 @@ private struct JournalRow: View {
             Divider()
             Button("删除期刊记录", role: .destructive) { confirmDelete = true }
         }
-        .confirmationDialog("删除“\(journal.name)”的期刊记录？", isPresented: $confirmDelete) {
+        .confirmationDialog(AppLanguage.isEnglish(locale)
+                            ? "Delete the journal record for “\(journal.name)”?"
+                            : "删除“\(journal.name)”的期刊记录？", isPresented: $confirmDelete) {
             Button("删除记录和文件关联", role: .destructive) { model.deleteJournal(journal) }
         } message: {
             Text("项目文件不会被删除或移动。")
@@ -1395,6 +1439,7 @@ private enum JournalCoverCache {
 }
 
 private struct JournalCoverView: View {
+    @Environment(\.locale) private var locale
     let journal: JournalSubmissionRecord
 
     var body: some View {
@@ -1411,11 +1456,13 @@ private struct JournalCoverView: View {
         .frame(width: 76, height: 96)
         .background(Color(nsColor: .windowBackgroundColor), in: RoundedRectangle(cornerRadius: 7))
         .clipShape(RoundedRectangle(cornerRadius: 7))
-        .accessibilityLabel("\(journal.name)封面")
+        .accessibilityLabel(AppLanguage.isEnglish(locale)
+                            ? "Cover for \(journal.name)" : "\(journal.name)封面")
     }
 }
 
 private struct JournalFilePicker: View {
+    @Environment(\.locale) private var locale
     let model: WorkspaceModel
     let journal: JournalSubmissionRecord
     let close: () -> Void
@@ -1428,7 +1475,9 @@ private struct JournalFilePicker: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("为“\(journal.name)”关联投稿文件").font(.headline)
+            Text(AppLanguage.isEnglish(locale)
+                 ? "Link submission files to “\(journal.name)”"
+                 : "为“\(journal.name)”关联投稿文件").font(.headline)
             Text("可选文件夹，自动关联其中所有层级的文件；原文件不会移动或复制。")
                 .font(.caption).foregroundStyle(.secondary)
             TextField("搜索项目文件", text: $query)
@@ -1443,7 +1492,8 @@ private struct JournalFilePicker: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if availableFiles.isEmpty {
-                    ContentUnavailableView(query.isEmpty ? "没有可关联的文件" : "没有匹配的文件",
+                    ContentUnavailableView(AppLanguage.text(
+                        query.isEmpty ? "没有可关联的文件" : "没有匹配的文件", locale: locale),
                                            systemImage: "doc.text.magnifyingglass")
                 } else {
                     List(availableFiles, selection: $selectedPaths) { file in
@@ -1452,7 +1502,9 @@ private struct JournalFilePicker: View {
                             Text(model.displayPath(file.relativePath)).lineLimit(1)
                             if file.isBrowsableFolder {
                                 Spacer()
-                                Text("\(folderFileCounts[file.relativePath, default: 0]) 个文件")
+                                Text(AppLanguage.isEnglish(locale)
+                                     ? "\(folderFileCounts[file.relativePath, default: 0]) files"
+                                     : "\(folderFileCounts[file.relativePath, default: 0]) 个文件")
                                     .font(.caption).foregroundStyle(.secondary)
                             }
                         }
@@ -1462,7 +1514,9 @@ private struct JournalFilePicker: View {
             }
             .frame(maxWidth: .infinity, minHeight: 340, maxHeight: .infinity)
             HStack {
-                Text("可关联 \(availableFileCount) 个文件 · 已选 \(selectedPaths.count) 项")
+                Text(AppLanguage.isEnglish(locale)
+                     ? "\(availableFileCount) files available · \(selectedPaths.count) selected"
+                     : "可关联 \(availableFileCount) 个文件 · 已选 \(selectedPaths.count) 项")
                     .font(.caption).foregroundStyle(.secondary)
                 Spacer()
                 Button("取消") { close() }
@@ -1505,6 +1559,7 @@ private enum AutoClassificationScope: String, CaseIterable, Identifiable {
 }
 
 private struct AutoClassificationPreview: View {
+    @Environment(\.locale) private var locale
     let model: WorkspaceModel
     @Binding var scope: AutoClassificationScope
     let close: () -> Void
@@ -1540,9 +1595,13 @@ private struct AutoClassificationPreview: View {
                 Text("全部项目").tag(AutoClassificationScope.allProjects)
             }
             .pickerStyle(.segmented)
-            Text(scope == .allProjects
-                 ? "范围：已导入的 \(model.projects.count) 个项目。"
-                 : "范围：\(model.currentProject?.displayName ?? "尚未选择项目")。")
+            Text(AppLanguage.isEnglish(locale)
+                 ? (scope == .allProjects
+                    ? "Scope: \(model.projects.count) imported projects"
+                    : "Scope: \(model.currentProject?.displayName ?? "No project selected")")
+                 : (scope == .allProjects
+                    ? "范围：已导入的 \(model.projects.count) 个项目。"
+                    : "范围：\(model.currentProject?.displayName ?? "尚未选择项目")。"))
                 .font(.caption).foregroundStyle(.secondary)
             Divider()
             Text("提取的文本片段会发送至OpenRouter的Jev模型进行分析，无法正常读取的文件会跳过，保密文件请勿使用")
@@ -1565,11 +1624,15 @@ private struct AutoClassificationPreview: View {
 
     private var progressPage: some View {
         Group {
-            Label(model.isAutoClassifying ? "正在自动分类" : "自动分类结果",
+            Label(AppLanguage.text(model.isAutoClassifying
+                                   ? "正在自动分类" : "自动分类结果", locale: locale),
                   systemImage: model.isAutoClassifying ? "tag" : "checkmark.circle")
                 .font(.title2.bold())
-            Text(model.autoClassificationPreparing ? "正在扫描项目文件…" :
-                 "已处理 \(model.autoClassificationCompleted) / \(model.autoClassificationTotal) 个文件")
+            Text(model.autoClassificationPreparing
+                 ? AppLanguage.text("正在扫描项目文件…", locale: locale)
+                 : (AppLanguage.isEnglish(locale)
+                    ? "Processed \(model.autoClassificationCompleted) / \(model.autoClassificationTotal) files"
+                    : "已处理 \(model.autoClassificationCompleted) / \(model.autoClassificationTotal) 个文件"))
                 .font(.title3.weight(.semibold))
                 .monospacedDigit()
             if model.autoClassificationPreparing {
@@ -1579,7 +1642,7 @@ private struct AutoClassificationPreview: View {
                              total: Double(max(model.autoClassificationTotal, 1)))
                     .progressViewStyle(.linear)
             }
-            Text(model.autoClassificationStatus)
+            Text(AppLanguage.operationStatus(model.autoClassificationStatus, locale: locale))
                 .font(.subheadline).foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
             HStack(spacing: 14) {
@@ -1592,7 +1655,7 @@ private struct AutoClassificationPreview: View {
             HStack {
                 if model.isAutoClassifying {
                     Spacer()
-                    Button(stopping ? "正在停止…" : "停止") {
+                    Button(AppLanguage.text(stopping ? "正在停止…" : "停止", locale: locale)) {
                         stopping = true
                         model.cancelAutoClassification()
                     }
@@ -1610,7 +1673,7 @@ private struct AutoClassificationPreview: View {
     private func progressMetric(_ title: String, value: Int) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("\(value)").font(.title3.weight(.semibold)).monospacedDigit()
-            Text(title).font(.caption).foregroundStyle(.secondary)
+            Text(AppLanguage.text(title, locale: locale))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

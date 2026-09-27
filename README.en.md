@@ -6,7 +6,7 @@ XiaoYu Workspace is a native macOS app for organizing research projects, files, 
 
 | Item | Details |
 | --- | --- |
-| Current version | 0.2.24 (build 26) |
+| Current version | 0.2.25 (build 27) |
 | Minimum system | macOS 15 on Apple silicon; the UI has only been verified on macOS 27 |
 | Technology | SwiftUI, SwiftData, App Sandbox |
 | License | [PolyForm Noncommercial 1.0.0](LICENSE.md); commercial use requires separate authorization |
@@ -39,7 +39,7 @@ XiaoYu Workspace is a native macOS app for organizing research projects, files, 
 
 - Record journals, URLs, and covers for each project, and associate multiple submission files without moving the originals
 - Export associated files from multiple project folders as a ZIP, grouped by source
-- Choose from 30 theme colors, adjust sidebar transparency, and view a local activity log that records actual changes
+- Switch the interface between Chinese and English, choose from 30 theme colors, adjust sidebar transparency, and view a local activity log that records actual changes
 
 ## Detailed classification: Jev and local options
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00DBB47157854434F12CB885 /* ProjectAccessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985222FAC92F8E4BEA8051C1 /* ProjectAccessService.swift */; };
+		0285180C88BC3C3FAF185FD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DD6A7B8CF2B16E742D66038 /* Localizable.strings */; };
 		048AB65A18BBBF0440D82B99 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF707A758F9BA8DED5D8152 /* SearchTests.swift */; };
 		0B2491A060683F1009FD7AAC /* JEVClassificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A00045493692E91CF266B /* JEVClassificationTests.swift */; };
 		220870E6905E9CD893C69A84 /* FileAnnotationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1D52D15DAA6FA9111DE18 /* FileAnnotationRecord.swift */; };
@@ -18,6 +19,7 @@
 		40DBE4015E827DB1D9A5377B /* WorkspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCF6DEF1B053C73D72014 /* WorkspaceTests.swift */; };
 		48229D42606738EB9D46C442 /* ProjectChangeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CE8D1C4D80CBDBA08D0B /* ProjectChangeMonitor.swift */; };
 		4D3A9A1CE91249486F77642F /* FileOperationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD85F3A4A65B76B485D4B01 /* FileOperationService.swift */; };
+		5196912B19E6F5916EA96D14 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA701775A971F1490F47514 /* AppLanguage.swift */; };
 		60E386B59D8F025019392632 /* ProjectStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE21F2E44077646CB884B73 /* ProjectStage.swift */; };
 		6685AEC2C5BCEACBF25AD3FC /* ThemePalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */; };
 		72341E561C804BB6307AFA54 /* WorkspaceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA28A9CD71F2622252D7BDF /* WorkspaceSettingsView.swift */; };
@@ -25,6 +27,7 @@
 		76104431D1EEF7B131DBCB5D /* WorkspaceCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4B1FB3C08970814F5AFB2 /* WorkspaceCommands.swift */; };
 		7FDC5E7AFCBC1977B4001FED /* ProjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAEE4743C80C3D9B42D3BBB /* ProjectRecord.swift */; };
 		83806D957B62BC28870BE968 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35481FC734DD221C05693 /* JournalTests.swift */; };
+		880C6C331431060C0F37D8E4 /* AppLanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44BE54C74B45AA2355D93F /* AppLanguageTests.swift */; };
 		97ABEC481792D21E1DB2B612 /* IndexCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7036ED4A2CC6AB0A536CF /* IndexCacheService.swift */; };
 		9A819A304D09D30144472E57 /* ProjectScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA5EE49030F2DE0E3A1803 /* ProjectScanService.swift */; };
 		9E38BFF24EF619D726D463C6 /* AnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EBD346FD2E224BE88D132C /* AnnotationTests.swift */; };
@@ -70,6 +73,8 @@
 		1F38564073CAB3472CA05226 /* XiaoYuWorkspaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XiaoYuWorkspaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2663DDD4DE0D75598FD637F1 /* OpenRouterAPIKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterAPIKeyStore.swift; sourceTree = "<group>"; };
 		2715B59F0A5F487C80FB8AB4 /* OpenRouterJEVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterJEVTests.swift; sourceTree = "<group>"; };
+		2A96BC1C4E9CB4C5C0ADCC1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2EA701775A971F1490F47514 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		303808BCB154A8F3E089C1D2 /* JournalSubmissionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSubmissionRecord.swift; sourceTree = "<group>"; };
 		37C5C311511FB48DB9A4947B /* ActivityLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLogStore.swift; sourceTree = "<group>"; };
 		37E1E9271055E0C83E027F10 /* TrashRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashRecord.swift; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 		8AAA38400A97448BE7E1F4F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8A6BB658D6A734369045A1 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
 		985222FAC92F8E4BEA8051C1 /* ProjectAccessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAccessService.swift; sourceTree = "<group>"; };
+		9D1BF5A7E76F87778DD86852 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A6CE74ADA39657E696C0C493 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePalette.swift; sourceTree = "<group>"; };
 		B5F90FDB6ACF0FA0961AAAA0 /* FileOpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenService.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 		FAA28A9CD71F2622252D7BDF /* WorkspaceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceSettingsView.swift; sourceTree = "<group>"; };
 		FAD85F3A4A65B76B485D4B01 /* FileOperationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationService.swift; sourceTree = "<group>"; };
 		FDBA5EE49030F2DE0E3A1803 /* ProjectScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectScanService.swift; sourceTree = "<group>"; };
+		FE44BE54C74B45AA2355D93F /* AppLanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageTests.swift; sourceTree = "<group>"; };
 		FEDDCBC27B03BFFEDC91A49B /* ClassificationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EBD346FD2E224BE88D132C /* AnnotationTests.swift */,
+				FE44BE54C74B45AA2355D93F /* AppLanguageTests.swift */,
 				4C9A484F62D8A995B4088DC1 /* ClassificationTests.swift */,
 				D15C64F41DD5FCDF09E46A3E /* FileOperationTests.swift */,
 				3D8A00045493692E91CF266B /* JEVClassificationTests.swift */,
@@ -220,6 +228,7 @@
 		C7CD95141D81757E1343B201 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2EA701775A971F1490F47514 /* AppLanguage.swift */,
 				AB4A6EE1F6E2FC231619C5EE /* ThemePalette.swift */,
 				5835C827AAFDD1FC1A894E7A /* WorkspaceModel.swift */,
 				7E9125BCA694CA1DAD5CB44F /* WorkspaceRootView.swift */,
@@ -232,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				8AAA38400A97448BE7E1F4F7 /* Assets.xcassets */,
+				0DD6A7B8CF2B16E742D66038 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -313,6 +323,7 @@
 			knownRegions = (
 				Base,
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 87EA82E2F18E3C12AB69692C;
 			minimizedProjectReferenceProxies = 1;
@@ -334,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C3F5D5AF88C44A42E98B24B /* Assets.xcassets in Resources */,
+				0285180C88BC3C3FAF185FD1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E706731D0EFE0839F021BA4F /* ActivityLogStore.swift in Sources */,
+				5196912B19E6F5916EA96D14 /* AppLanguage.swift in Sources */,
 				F0B7605C80124E966952F53F /* ClassificationEngine.swift in Sources */,
 				220870E6905E9CD893C69A84 /* FileAnnotationRecord.swift in Sources */,
 				BFEDF3360B4AC4F4A05BD782 /* FileAnnotationService.swift in Sources */,
@@ -379,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E38BFF24EF619D726D463C6 /* AnnotationTests.swift in Sources */,
+				880C6C331431060C0F37D8E4 /* AppLanguageTests.swift in Sources */,
 				B21B39A9BBA6F8E2B42F48C4 /* ClassificationTests.swift in Sources */,
 				347C464FAB543CE16358BCFC /* FileOperationTests.swift in Sources */,
 				0B2491A060683F1009FD7AAC /* JEVClassificationTests.swift in Sources */,
@@ -412,6 +426,18 @@
 			targetProxy = 2CD379495111FC21D59FB734 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0DD6A7B8CF2B16E742D66038 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A96BC1C4E9CB4C5C0ADCC1F /* en */,
+				9D1BF5A7E76F87778DD86852 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		09D08BB3C66660CEAD708A10 /* Release */ = {
@@ -507,7 +533,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "小鱼工作台";
+				INFOPLIST_KEY_CFBundleDisplayName = "XiaoYu Workspace";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -572,7 +598,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "小鱼工作台";
+				INFOPLIST_KEY_CFBundleDisplayName = "XiaoYu Workspace";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

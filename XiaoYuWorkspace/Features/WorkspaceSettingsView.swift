@@ -2,7 +2,9 @@ import AppKit
 import SwiftUI
 
 struct WorkspaceSettingsView: View {
+    @Environment(\.locale) private var locale
     @AppStorage("themeColorHex") private var themeColorHex = ThemePalette.defaultHex
+    @AppStorage("appLanguage") private var appLanguage = "zh-Hans"
 
     var body: some View {
         TabView {
@@ -21,13 +23,15 @@ struct WorkspaceSettingsView: View {
 
     private var about: some View {
         VStack(spacing: 14) {
-            Image(nsImage: NSApplication.shared.applicationIconImage)
+            Image(nsImage: applicationIcon)
                 .resizable()
                 .interpolation(.high)
                 .frame(width: 104, height: 104)
             Text("小鱼工作台")
                 .font(.title.bold())
-            Text("版本 \(version)（\(build)）")
+            Text(AppLanguage.isEnglish(locale)
+                 ? "Version \(version) (\(build))"
+                 : "版本 \(version)（\(build)）")
                 .foregroundStyle(.secondary)
             Divider().frame(width: 400)
             Text("免费使用，未经授权的商业使用可能构成侵权")
@@ -46,22 +50,38 @@ struct WorkspaceSettingsView: View {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "开发版"
     }
 
+    private var applicationIcon: NSImage {
+        guard let path = Bundle.main.path(forResource: "AppIcon", ofType: "icns"),
+              let image = NSImage(contentsOfFile: path) else {
+            return NSApplication.shared.applicationIconImage
+        }
+        return image
+    }
+
     private var build: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
     }
 }
 
 private struct AppearanceSettingsView: View {
+    @Environment(\.locale) private var locale
     @AppStorage("themeColorHex") private var themeColorHex = ThemePalette.defaultHex
     @AppStorage("sidebarUsesCustomTransparency") private var customTransparency = false
     @AppStorage("sidebarTransparency") private var transparency = 0.5
+    @AppStorage("appLanguage") private var appLanguage = "zh-Hans"
 
     var body: some View {
         Form {
+            Section("语言") {
+                Picker("界面语言", selection: $appLanguage) {
+                    Text("简体中文").tag("zh-Hans")
+                    Text("English").tag("en")
+                }
+            }
             Section("主题色") {
                 ForEach(ThemePalette.groups) { group in
                     VStack(alignment: .leading, spacing: 9) {
-                        Text(group.name)
+                        Text(AppLanguage.text(group.name, locale: locale))
                             .font(.subheadline.weight(.semibold))
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 5),
                                   spacing: 10) {
@@ -105,6 +125,11 @@ private struct AppearanceSettingsView: View {
                 recordAppearanceChange("主题色", detail: newValue)
             }
         }
+        .onChange(of: appLanguage) { oldValue, newValue in
+            if oldValue != newValue {
+                recordAppearanceChange("界面语言", detail: newValue == "en" ? "English" : "简体中文")
+            }
+        }
     }
 
     private func recordAppearanceChange(_ action: String, detail: String) {
@@ -116,6 +141,7 @@ private struct AppearanceSettingsView: View {
 }
 
 private struct ThemeSwatchButton: View {
+    @Environment(\.locale) private var locale
     let hex: String
     let isSelected: Bool
     let action: () -> Void
@@ -145,12 +171,13 @@ private struct ThemeSwatchButton: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("主题色 \(hex)")
+        .accessibilityLabel(AppLanguage.isEnglish(locale) ? "Theme color \(hex)" : "主题色 \(hex)")
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
 
 private struct OpenRouterSettingsView: View {
+    @Environment(\.locale) private var locale
     @State private var input = ""
     @State private var hasSavedKey = false
     @State private var statusMessage: String?
@@ -162,7 +189,8 @@ private struct OpenRouterSettingsView: View {
                     .foregroundStyle(.secondary)
                 SecureField("输入 API Key", text: $input)
                     .textFieldStyle(.roundedBorder)
-                Text(hasSavedKey ? "已保存到本机钥匙串" : "尚未设置 API Key")
+                Text(AppLanguage.text(hasSavedKey ? "已保存到本机钥匙串" : "尚未设置 API Key",
+                                      locale: locale))
                     .foregroundStyle(hasSavedKey ? .green : .secondary)
                 HStack {
                     Button("保存到钥匙串") { save() }
@@ -173,7 +201,8 @@ private struct OpenRouterSettingsView: View {
                 Link("获取 OpenRouter API Key",
                      destination: URL(string: "https://openrouter.ai/settings/keys")!)
                 if let statusMessage {
-                    Text(statusMessage).font(.caption).foregroundStyle(.red)
+                    Text(AppLanguage.operationStatus(statusMessage, locale: locale))
+                        .font(.caption).foregroundStyle(.red)
                 }
             }
         }
@@ -218,6 +247,7 @@ private struct OpenRouterSettingsView: View {
 }
 
 private struct ActivityLogView: View {
+    @Environment(\.locale) private var locale
     @State private var events: [ActivityEvent] = []
     @State private var isLoading = false
     @State private var errorMessage: String?
@@ -236,7 +266,8 @@ private struct ActivityLogView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if let errorMessage {
                 ContentUnavailableView("日志读取失败", systemImage: "exclamationmark.triangle",
-                                       description: Text(errorMessage))
+                                       description: Text(AppLanguage.operationStatus(
+                                        errorMessage, locale: locale)))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if events.isEmpty {
                 ContentUnavailableView("还没有变更记录", systemImage: "list.bullet.rectangle",
@@ -246,17 +277,18 @@ private struct ActivityLogView: View {
                 List(events) { event in
                     VStack(alignment: .leading, spacing: 4) {
                         HStack {
-                            Text(event.action).fontWeight(.semibold)
+                        Text(AppLanguage.text(event.action, locale: locale)).fontWeight(.semibold)
                             Spacer()
                             Text(event.occurredAt.formatted(
                                 .dateTime.year().month().day().hour().minute().second()))
                                 .font(.caption).foregroundStyle(.secondary)
                         }
-                        Text(event.detail)
+                        Text(AppLanguage.activityDetail(event.detail, locale: locale))
                             .font(.caption)
                             .textSelection(.enabled)
                         if let projectName = event.projectName {
-                            Text("项目：\(projectName)")
+                            Text(AppLanguage.isEnglish(locale)
+                                 ? "Project: \(projectName)" : "项目：\(projectName)")
                                 .font(.caption2).foregroundStyle(.secondary)
                         }
                     }
