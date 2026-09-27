@@ -11,6 +11,8 @@
 
 [下载最新版 DMG](https://github.com/ShanchongFeng/XiaoYuWorkspace/releases/latest) · [查看开发规格](docs/Research_Workspace_macOS27_ARCHITECTURE_UI.md)
 
+> **本地运行与 API Key：** 软件在本机运行；Jev 准确分类需自备 OpenRouter API Key，密钥保存在 macOS 钥匙串，请勿分享或提交到仓库；分类时文本片段会发送至 OpenRouter，请留意用量和费用
+
 ## 功能
 
 ### 项目与文件夹
