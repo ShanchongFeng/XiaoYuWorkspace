@@ -41,6 +41,14 @@ XiaoYu Workspace is a native macOS app for organizing research projects, files, 
 - Export associated files from multiple project folders as a ZIP, grouped by source
 - Switch the interface between Chinese and English, choose from 30 theme colors, adjust sidebar transparency, and view a local activity log that records actual changes
 
+## Planned for the next version
+
+- Start with a local vector index for project files whose text can be extracted, including Markdown, CSV, XLSX, and DOCX; split long files into chunks and combine file-name and content search to locate the originals
+- After a content change has settled, update affected vectors using content checks and save a time-stamped vector snapshot (timeshot); intermediate edits cannot be guaranteed while the app is closed or during rapid successive saves
+- Add a XiaoYu Assistant with user-configured embedding and chat model APIs; use retrieved results to find files and show the source project, relevant excerpts, and a Reveal in Finder action; the existing Jev integration remains for classification
+- Keep PDFs, images, and other files searchable by name and metadata first; extracting their content, using OCR, and creating visual embeddings require separate work and will be assessed in stages
+- None of these features is implemented yet; cloud APIs may receive extracted file content, and confidentiality, usage, and costs will be explained before users enable them
+
 ## Detailed classification: Jev and local options
 
 ### Current integration and pricing
